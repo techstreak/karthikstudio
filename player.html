@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <h1>Now Playing</h1>
+  <div id="player">
+    <audio controls id="audio-player"></audio>
+    <p id="song-title"></p>
+  </div>
+  <script>
+    // Get song details from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const song = urlParams.get('song');
+    const title = urlParams.get('title');
+
+    // Update player
+    const audioPlayer = document.getElementById('audio-player');
+    const songTitle = document.getElementById('song-title');
+
+    audioPlayer.src = song;
+    songTitle.textContent = title || "Unknown Song";
+  </script>
+</body>
+</html>
